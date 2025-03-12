@@ -6,6 +6,7 @@ export const createFoodCategory = async (req, res) => {
         const { categoryName } = req.body;
         if (!categoryName) {
             return res.status(404).json({ message: "Select category name" })
+            
         }
         const changedChategory = new foodCategoryModel({
             categoryName,
