@@ -23,21 +23,30 @@ export const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      {
-        id: user._id,
-        email: user.email,
-      },
-      "secret key"
+      { id: user._id, email: user.email },
+      process.env.JWT_SECRET || "secret_key_fallback",
+      { expiresIn: "1h" }
     );
+
+    // Return user data (exclude password)
+    const userData = user.toObject();
+    delete userData.password;
 
     res.status(200).json({
       message: "Login successful",
       token,
+      user: userData, // Add user data here
     });
   } catch (err) {
-    res.status(500).json({
-      message: "Server error",
-      error: err.message,
-    });
+    console.error("Login error:", err);
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 };
+
+// Router setup (if not already done)
+import express from "express";
+const router = express.Router();
+
+router.post("/log-in", login);
+
+export default router;
