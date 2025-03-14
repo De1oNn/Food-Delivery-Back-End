@@ -3,7 +3,7 @@ import { foodModel } from "../../models/food.model.js";
 export const createFood = async (req, res) => {
   try {
     const { foodName, price, image, ingredients, category } = req.body;
-    
+
     if (!foodName || !price || !ingredients || !category) {
       return res.status(400).json({
         message: "All fields are required",
