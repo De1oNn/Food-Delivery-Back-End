@@ -28,14 +28,13 @@ export const login = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    // Return user data (exclude password)
     const userData = user.toObject();
     delete userData.password;
 
     res.status(200).json({
       message: "Login successful",
       token,
-      user: userData, // Add user data here
+      user: userData,
     });
   } catch (err) {
     console.error("Login error:", err);
