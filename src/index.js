@@ -7,6 +7,7 @@ import { foodRouter } from "./router/food.routes.js";
 import { foodOrderRouter } from "./router/food.order.routes.js";
 import cors from 'cors'
 
+
 const app = express();
 dotenv.config();
 const PORT = 5000;
