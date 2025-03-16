@@ -1,12 +1,26 @@
-import { foodModel } from "../../models/food.model.js";
+import { foodModel } from '../../models/food.model.js';
+import mongoose from 'mongoose';
 
 export const createFood = async (req, res) => {
   try {
     const { foodName, price, image, ingredients, category } = req.body;
 
-    if (!foodName || !price || !ingredients || !category) {
+    if (!foodName || !price || !image || !ingredients || !category) {
       return res.status(400).json({
         message: "All fields are required",
+      });
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(category)) {
+      return res.status(400).json({
+        message: "Invalid category ID",
+      });
+    }
+
+    const categoryExists = await mongoose.model('Category').findById(category);
+    if (!categoryExists) {
+      return res.status(400).json({
+        message: "Category does not exist",
       });
     }
 
@@ -22,10 +36,10 @@ export const createFood = async (req, res) => {
 
     res.status(201).json({
       message: "Food created successfully",
-      food: saveFood, 
+      food: saveFood,
     });
   } catch (error) {
-    console.error("Error creating food:", error); 
+    console.error("Error creating food:", error);
     res.status(500).json({
       message: "Internal Server Error",
       error: error.message,
