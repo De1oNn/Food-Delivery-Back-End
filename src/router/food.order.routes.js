@@ -4,4 +4,4 @@ import { createOrder } from "../controllers/orders-controller/create-order.js";
 export const foodOrderRouter = Router();
 
 foodOrderRouter.post("/", createOrder)
-foodOrderRouter.get("/:id", getOrder)
+foodOrderRouter.get("/", getOrder)

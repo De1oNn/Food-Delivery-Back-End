@@ -25,7 +25,7 @@ app.get("/api/hello", (req, res) => {
 app.use("/auth", userRouter);
 app.use("/", foodRouter);
 // app.use("/food-category", categoryRouter)
-app.use("/food-order", foodOrderRouter)
+app.use("/order", foodOrderRouter)
 
 app.listen(PORT, () => {
   console.log(`Running on port ${PORT}`);

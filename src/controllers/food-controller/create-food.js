@@ -1,5 +1,6 @@
-import { foodModel } from '../../models/food.model.js';
-import mongoose from 'mongoose';
+import { foodModel } from "../../models/food.model.js";
+import { foodCategoryModel } from "../../models/food-category.model.js"; // Import the category model
+import mongoose from "mongoose";
 
 export const createFood = async (req, res) => {
   try {
@@ -17,7 +18,8 @@ export const createFood = async (req, res) => {
       });
     }
 
-    const categoryExists = await mongoose.model('Category').findById(category);
+    // Use the imported foodCategoryModel instead of mongoose.model('Category')
+    const categoryExists = await foodCategoryModel.findById(category);
     if (!categoryExists) {
       return res.status(400).json({
         message: "Category does not exist",
