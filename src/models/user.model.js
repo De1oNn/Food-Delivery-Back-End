@@ -11,7 +11,7 @@ const userSchema = new Schema(
       enum: ["ADMIN", "USER"],
       default: "USER",
     },
-    orderedFoods: [{ type: Schema.Types.ObjectId, ref: "Foods" }],
+    orderedFoods: [{ type: Schema.Types.ObjectId, ref: "FoodOrders" }], // Changed to reference FoodOrders
     name: { type: String },
     isVerified: { type: Boolean, default: false },
   },
