@@ -11,6 +11,6 @@ export const userRouter = express.Router();
 
 userRouter.post("/sign-up", validateEmailMiddleware, createUser);
 userRouter.delete("/",authorizationMiddleware, deleteUser);
-userRouter.put("/:id", authorizationMiddleware, updateUser);
+userRouter.put("/update-user", authorizationMiddleware, updateUser);
 userRouter.get("/:id", authorizationMiddleware, getUser);
 userRouter.post("/log-in",validateEmailMiddleware, login);

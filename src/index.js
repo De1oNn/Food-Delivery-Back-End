@@ -24,7 +24,6 @@ app.get("/api/hello", (req, res) => {
 
 app.use("/auth", userRouter);
 app.use("/", foodRouter);
-
 app.use("/order", foodOrderRouter)
 // app.use("/food-category", categoryRouter)
 

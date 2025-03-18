@@ -3,6 +3,7 @@ import { Schema, model } from "mongoose";
 const foodOrderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "Users", required: true },
   totalPrice: { type: Number, required: true },
+  // image: { type: String, required: false },
   foodOrderItems: [
     {
       food: { type: Schema.Types.ObjectId, ref: "Foods", required: true },

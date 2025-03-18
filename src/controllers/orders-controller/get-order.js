@@ -4,8 +4,8 @@ export const getOrder = async (req, res) => {
   try {
     const orders = await foodOrderModel
       .find()
-      .populate("user", "username") // Populate user with username only
-      .populate("foodOrderItems.food", "foodName price"); // Populate food details
+      .populate("user", "name") 
+      .populate("foodOrderItems.food", "foodName price image"); 
     if (!orders || orders.length === 0) {
       return res.status(404).json({ message: "No orders found" });
     }
