@@ -14,6 +14,7 @@ const userSchema = new Schema(
     orderedFoods: [{ type: Schema.Types.ObjectId, ref: "FoodOrders" }], // Changed to reference FoodOrders
     name: { type: String },
     isVerified: { type: Boolean, default: false },
+    
   },
   { timestamps: true }
 );
