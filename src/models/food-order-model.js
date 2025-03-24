@@ -15,6 +15,7 @@ const foodOrderSchema = new Schema({
     enum: ["PENDING", "CANCELED", "DELIVERED"],
     default: "PENDING",
   },
+  email: { type: String },
 }, { timestamps: true });
 
 export const foodOrderModel = model("FoodOrders", foodOrderSchema);
