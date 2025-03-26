@@ -12,3 +12,27 @@ import { UserModel } from "../../models/user.model.js";
         res.status(404).json("error", error)
     }
  }
+ export const getAllUsers = async (req, res) => {
+   try {
+     const { page = 1, limit = 10 } = req.query;
+     const skip = (page - 1) * limit;
+     const users = await UserModel.find()
+       .select("-password")
+       .skip(skip)
+       .limit(parseInt(limit));
+     const totalUsers = await UserModel.countDocuments();
+
+     res.status(200).json({
+       users,
+       pagination: {
+         currentPage: parseInt(page),
+         totalPages: Math.ceil(totalUsers / limit),
+         totalUsers,
+         limit: parseInt(limit),
+       },
+     });
+   } catch (error) {
+     res.status(500).json({ error: error.message });
+   }
+ };
+ 
