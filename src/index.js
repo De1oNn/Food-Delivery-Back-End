@@ -6,6 +6,7 @@ import { foodRouter } from "./router/food.routes.js";
 // import { categoryRouter } from "./router/category.routes.js";
 import { foodOrderRouter } from "./router/food.order.routes.js";
 import cors from 'cors'
+import { notifRouter } from "./router/notif.routes.js";
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.get("/api/hello", (req, res) => {
 app.use("/auth", userRouter);
 app.use("/", foodRouter);
 app.use("/order", foodOrderRouter)
+app.use("/notif", notifRouter)
 // app.use("/food-category", categoryRouter)
 
 app.listen(PORT, () => {
