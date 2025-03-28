@@ -28,7 +28,7 @@ app.use("/auth", userRouter);
 app.use("/", foodRouter);
 app.use("/order", foodOrderRouter)
 app.use("/notif", notifRouter)
-app.use("restaurant", restaurantRouter)
+app.use("/restaurant", restaurantRouter)
 // app.use("/food-category", categoryRouter)
 
 app.listen(PORT, () => {
