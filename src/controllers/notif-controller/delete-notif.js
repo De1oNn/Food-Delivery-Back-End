@@ -1,11 +1,9 @@
-// In src/controllers/notif-controller/notif-controller.js
 import Notification from "../../models/Notification.js";
 
-// Existing createNotif and getNotifications functions remain unchanged...
 
 export const deleteNotif = async (req, res) => {
   try {
-    const { id } = req.params; // Notification ID from URL params
+    const { id } = req.params; 
     const deletedNotif = await Notification.findByIdAndDelete(id);
 
     if (!deletedNotif) {
