@@ -2,10 +2,10 @@ import { foodOrderModel } from "../../models/food-order-model.js";
 
 export const deleteOrder = async (req, res) => {
   try {
-    const { id } = req.params;
-    console.log("Backend received order ID:", id);
+    const { orderId } = req.params; // Match :orderId from the route
+    console.log("Backend received order ID:", orderId);
 
-    const deletedOrder = await foodOrderModel.findByIdAndDelete(id);
+    const deletedOrder = await foodOrderModel.findByIdAndDelete(orderId);
     console.log("Deleted order:", deletedOrder);
 
     if (!deletedOrder) {
