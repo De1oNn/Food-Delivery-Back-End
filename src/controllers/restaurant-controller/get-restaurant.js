@@ -15,7 +15,7 @@ export const getRestaurants = async (req, res) => {
 };
 export const getRestaurant = async (req, res) => {
   try {
-    const { id } = req.params; // Extract the ID from the URL
+    const { id } = req.params;
     const restaurant = await Restaurant.findById(id);
 
     if (!restaurant) {
@@ -25,7 +25,7 @@ export const getRestaurant = async (req, res) => {
     }
 
     res.status(200).json({
-      restaurant, // Return a single restaurant object
+      restaurant,
     });
   } catch (error) {
     res.status(500).json({

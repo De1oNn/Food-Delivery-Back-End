@@ -18,7 +18,6 @@ export const createFood = async (req, res) => {
       });
     }
 
-    // Use the imported foodCategoryModel instead of mongoose.model('Category')
     const categoryExists = await foodCategoryModel.findById(category);
     if (!categoryExists) {
       return res.status(400).json({

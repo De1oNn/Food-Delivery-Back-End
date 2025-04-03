@@ -10,7 +10,6 @@ export const createNotif = async (req, res) => {
     }
 
     const newNotification = new Notification({
-      // Use the model directly
       message: notif,
     });
 

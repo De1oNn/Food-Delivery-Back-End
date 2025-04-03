@@ -42,7 +42,6 @@ export const login = async (req, res) => {
   }
 };
 
-// Router setup (if not already done)
 import express from "express";
 const router = express.Router();
 
