@@ -19,6 +19,10 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("Connected to MongoDB");
 });
 
+app.get("/", (req, res) => {
+  res.send("hello world");
+})
+
 app.use(cors());
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Hello from Express!" });
