@@ -21,7 +21,7 @@ mongoose
   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.send("hello from Back-End");
 });
 
 app.get("/api/hello", (req, res) => {
