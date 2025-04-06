@@ -7,6 +7,7 @@ import { foodOrderRouter } from "./router/food.order.routes.js";
 import cors from "cors";
 import { notifRouter } from "./router/notif.routes.js";
 import { restaurantRouter } from "./router/restaurant.routes.js";
+import { categoryRouter } from "./router/category.routes.js";
 
 const app = express();
 dotenv.config();
@@ -33,6 +34,7 @@ app.use("/", foodRouter);
 app.use("/order", foodOrderRouter);
 app.use("/notif", notifRouter);
 app.use("/restaurant", restaurantRouter);
+app.use("/food-category", categoryRouter)
 
 app.listen(PORT, () => {
   console.log(`Running on port ${PORT}`);
