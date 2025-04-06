@@ -1,5 +1,5 @@
 import { foodModel } from "../../models/food.model.js";
-import { foodCategoryModel } from "../../models/food-category.model.js"; // Import the category model
+import { foodCategoryModel } from "../../models/food-category.model.js";
 import mongoose from "mongoose";
 
 export const createFood = async (req, res) => {

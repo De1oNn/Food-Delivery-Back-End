@@ -29,7 +29,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.use("/auth", userRouter);
-app.use("/food", foodRouter);
+app.use("/", foodRouter);
 app.use("/order", foodOrderRouter);
 app.use("/notif", notifRouter);
 app.use("/restaurant", restaurantRouter);
