@@ -17,4 +17,4 @@ export const deleteFood = async (req, res) => {
       error: error.message,
     });
   }
-};  
+};
