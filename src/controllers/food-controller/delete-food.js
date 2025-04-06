@@ -1,4 +1,4 @@
-import { foodModel } from "../../models/food.model";
+import { foodModel } from "../../models/food.model.js";
 
 export const deleteFood = async (req, res) => {
   try {
